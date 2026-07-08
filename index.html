@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BloomSkin - Recetas Caseras</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ========== MODAL NOMBRE/INSTITUCIÓN ========== -->
+<div id="modal-nombre-institucion" class="modal" style="display:flex;align-items:center;justify-content:center;">
+  <div class="modal-content" style="max-width:420px;">
+    <h2>¡Bienvenido!</h2>
+    <p>Por favor, introduce tu nombre y institución/colegio:</p>
+    <input type="text" id="input-nombre" placeholder="Tu nombre">
+    <input type="text" id="input-institucion" placeholder="Institución / Colegio">
+    <button id="guardar-nombre-institucion" class="btn btn-primary">Continuar</button>
+  </div>
+</div>
+
+<!-- ========== PORTADA ========== -->
+<div id="portada" class="portada">
+  <div class="portada-bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="dots"></div>
+  </div>
+  <div class="portada-panel">
+    <div class="portada-left">
+      <div class="brand-hero">
+        <div class="brand-hero-title">BloomSkin</div>
+        <div class="brand-hero-sub">Skin & Care — desde <span class="from-region">SAN MARTIN ❤</span></div>
+      </div>
+      <h1 class="portada-head">Transforma tu rutina con recetas naturales</h1>
+      <p class="portada-punch">Tu asistente de belleza natural: recetas claras, prácticas y pensadas para escuelas y hogares.</p>
+      <div class="portada-ctas">
+        <button id="entrarBtn" class="portada-btn primary">Entrar a la App</button>
+      </div>
+      <div class="portada-cards">
+        <div class="card feature color-1"><div class="icon">💄</div><div>Recetas inteligentes: Filtra por problema o ingrediente</div></div>
+        <div class="card feature color-2"><div class="icon">🌿</div><div>Ingredientes reales: Aloe, avena, miel</div></div>
+        <div class="card feature color-3"><div class="icon">🤝</div><div>Hecho para comunidades: Fácil y seguro</div></div>
+      </div>
+      <p class="portada-tagline">Empieza hoy: cuida tu piel con ciencia tradicional y cariño moderno. ✨</p>
+    </div>
+    <div class="hero-art">
+      <svg class="hero-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="g1" cx="30%" cy="30%"><stop offset="0%" stop-color="#FFD4A8"/><stop offset="100%" stop-color="#FF9A76"/></radialGradient>
+          <radialGradient id="g2" cx="30%" cy="30%"><stop offset="0%" stop-color="#A8E6CF"/><stop offset="100%" stop-color="#5BC0A0"/></radialGradient>
+          <radialGradient id="g3" cx="30%" cy="30%"><stop offset="0%" stop-color="#E0C3FC"/><stop offset="100%" stop-color="#B892D9"/></radialGradient>
+        </defs>
+        <ellipse cx="220" cy="180" rx="110" ry="90" fill="url(#g1)" filter="drop-shadow(0 20px 40px rgba(255,154,118,0.4))"/>
+        <ellipse cx="150" cy="260" rx="80" ry="70" fill="url(#g2)" filter="drop-shadow(0 15px 30px rgba(91,192,160,0.4))"/>
+        <circle cx="260" cy="290" r="35" fill="url(#g3)" filter="drop-shadow(0 10px 20px rgba(184,146,217,0.4))"/>
+      </svg>
+    </div>
+  </div>
+  <div id="portada-loader" class="portada-loader">
+    <div class="loader-inner">
+      <div class="loader-icon"></div>
+      <div class="loader-text">Preparando tu experiencia…</div>
+      <div class="loader-bar"><div id="loader-progress" class="loader-progress"></div></div>
+    </div>
+  </div>
+  <div id="bienvenidaMensaje" class="bienvenida-mensaje">¡Bienvenidos a la app!</div>
+</div>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="header-container">
+    <h1>🌿 Recetas Caseras - Cuidado Corporal</h1>
+    <button id="menu-btn-mobile" class="menu-btn-mobile"><i class="fas fa-bars"></i></button>
+    <button id="toggle-theme-btn" class="toggle-theme-btn"><i id="theme-icon" class="fas fa-moon"></i></button>
+    <button id="chatbot-btn" class="chatbot-icon-header" aria-label="Abrir IA">
+      <i class="fas fa-robot"></i> IA Amigable
+    </button>
+  </div>
+  <div class="nav-wrapper" id="nav-wrapper">
+    <div class="nav-container">
+      <ul class="nav-menu-horizontal">
+        <li><a href="#" data-category="todas" class="active">Todas</a></li>
+        <li><a href="#" data-category="piel">Piel</a></li>
+        <li><a href="#" data-category="labios">Labios</a></li>
+        <li><a href="#" data-category="cabello">Cabello</a></li>
+        <li><a href="#" data-category="mascarillas">Mascarillas</a></li>
+      </ul>
+      <button id="btn-ver-mas" class="btn-ver-mas">Más <i class="fas fa-chevron-down"></i></button>
+    </div>
+    <ul id="nav-menu-expandible" class="nav-menu-expandible">
+      <li><a href="#" data-category="manos">Manos</a></li>
+      <li><a href="#" data-category="nutricion">Nutrición</a></li>
+      <li><a href="#" data-category="proyectos-fencyt">Proyectos FENCYT</a></li>
+      <li><a href="#" data-category="bienestar">Bienestar</a></li>
+      <li><a href="#" data-category="tarapoto">Tarapoto</a></li>
+      <li><a href="#" data-category="purgantes">Purgantes</a></li>
+      <li><a href="#" data-category="energia">Energía</a></li>
+      <li><a href="#" data-category="cuñumbuque">Cuñumbuque</a></li>
+      <li><a href="#" data-category="relajacion">Relajación</a></li>
+      <li><a href="#" data-category="peso">Peso</a></li>
+      <li class="separator"></li>
+      <li><a href="#" id="favoritos-btn" class="special-btn">❤ Favoritos</a></li>
+      <li><a href="#" id="config-btn" class="special-btn">⚙ Config</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ========== USUARIO INFO ========== -->
+<div id="usuario-info" class="container" style="display:none;padding:10px 20px;">
+  <strong>Usuario:</strong> <span id="nombre-usuario"></span> | <strong>Institución:</strong> <span id="institucion-usuario"></span>
+</div>
+
+<!-- ========== MAIN ========== -->
+<main class="container">
+  <div id="recetas-container" class="recetas-grid"></div>
+</main>
+
+<!-- ========== MODAL RECETA ========== -->
+<div id="modal-receta" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="detalle-receta"></div>
+  </div>
+</div>
+
+<!-- ========== MODAL FAVORITOS ========== -->
+<div id="modal-favoritos" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Mis Recetas Favoritas</h2>
+    <div id="favoritos-container"></div>
+  </div>
+</div>
+
+<!-- ========== MODAL CONFIG ========== -->
+<div id="modal-config" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Configuración</h2>
+    <div class="config-options">
+      <div class="config-item">
+        <label>Tema:</label>
+        <select id="theme">
+          <option value="light">Claro</option>
+          <option value="dark">Oscuro</option>
+        </select>
+      </div>
+      <div class="config-item">
+        <label>Notificaciones:</label>
+        <input type="checkbox" id="notifications" checked>
+      </div>
+      <div class="config-item">
+        <label>Idioma:</label>
+        <select id="language">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+          <option value="pt">Português</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+          <option value="ru">Русский</option>
+          <option value="ar">العربية</option>
+        </select>
+      </div>
+      <button id="save-config" class="btn btn-primary">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MODAL CHATBOT IA v4 ========== -->
+<div id="modal-chatbot" class="modal-chatbot-v4">
+  <div class="chatbot-container-v4">
+    <div class="chatbot-header-v4">
+      <div class="chatbot-title">
+        <i class="fas fa-leaf"></i>
+        <div>
+          <h2>BloomSkin IA</h2>
+          <small>Tu asistente natural inteligente</small>
+        </div>
+      </div>
+      <div class="chatbot-actions">
+        <button class="icon-btn" id="btn-stats" title="Estadísticas"><i class="fas fa-chart-bar"></i></button>
+        <button class="icon-btn" id="btn-history" title="Historial"><i class="fas fa-history"></i></button>
+        <button class="icon-btn" id="btn-calendar" title="Calendario"><i class="fas fa-calendar-alt"></i></button>
+        <button class="icon-btn close-chat" id="close-chatbot"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+
+    <div class="chat-quick-actions">
+      <button data-action="diagnose"><i class="fas fa-stethoscope"></i> Diagnosticar</button>
+      <button data-action="compare"><i class="fas fa-balance-scale"></i> Comparar</button>
+      <button data-action="image"><i class="fas fa-camera"></i> Analizar foto</button>
+      <button data-action="nutrition"><i class="fas fa-apple-alt"></i> Nutrición</button>
+    </div>
+
+    <div class="chat-messages" id="chat-messages"></div>
+
+    <div class="chat-input-area">
+      <label class="upload-btn" title="Subir imagen">
+        <input type="file" id="chat-image-input" accept="image/*" hidden>
+        <i class="fas fa-image"></i>
+      </label>
+      <input type="text" id="chat-input" placeholder="Escribe tu consulta...">
+      <button id="send-btn" class="btn-send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MODAL COMPARADOR ========== -->
+<div id="modal-comparador" class="modal-v4">
+  <div class="modal-content-v4 comparador-modal">
+    <button class="close-modal">&times;</button>
+    <h2><i class="fas fa-balance-scale"></i> Comparador de Recetas</h2>
+    <div class="comparador-select">
+      <select id="compare-1"></select>
+      <select id="compare-2"></select>
+      <button id="btn-compare" class="btn btn-primary">Comparar</button>
+    </div>
+    <div id="comparador-result" class="comparador-result"></div>
+  </div>
+</div>
+
+<!-- ========== MODAL ESTADÍSTICAS ========== -->
+<div id="modal-stats" class="modal-v4">
+  <div class="modal-content-v4">
+    <button class="close-modal">&times;</button>
+    <h2><i class="fas fa-chart-line"></i> Tus Estadísticas</h2>
+    <div id="stats-content"></div>
+  </div>
+</div>
+
+<!-- ========== MODAL HISTORIAL ========== -->
+<div id="modal-historial" class="modal-v4">
+  <div class="modal-content-v4">
+    <button class="close-modal">&times;</button>
+    <h2><i class="fas fa-history"></i> Historial de Consultas</h2>
+    <div id="historial-content"></div>
+  </div>
+</div>
+
+<!-- ========== MODAL CALENDARIO ========== -->
+<div id="modal-calendar" class="modal-v4">
+  <div class="modal-content-v4">
+    <button class="close-modal">&times;</button>
+    <h2><i class="fas fa-calendar-check"></i> Calendario Inteligente</h2>
+    <div id="calendar-content"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
